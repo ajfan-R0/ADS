@@ -1,46 +1,45 @@
 #include<stdio.h>
 #include<stdlib.h>
-void insert();
-void delete();
+void insertion();
+void deletion();
 void display();
-int a[4],size=3,item,f=-1,r=-1;
+int f=-1,r=-1,item,size=3,a[50];
 void main()
 {
 int opt;
 do
 {
-printf("\nEnter your choice\n1.Insert\n2.Delete\n3.display\n4.Exit\n");
+printf("\nEnter your choice\n 1.insertion\n 2.deletion\n 3.display\n 4.exit\n");
 scanf("%d",&opt);
-printf("The choice is %d \n",opt);
+printf("choice is %d\n",opt);
 switch(opt)
 {
-case 1:insert();
+case 1: insertion();
 break;
-case 2:delete();
+case 2: deletion();
 break;
-case 3:display();
+case 3: display();
 break;
-case 4:exit(0);
+case 4: exit(0);
 break;
-default:printf("invalid");
 }
 }while(opt!=4);
 }
-
-void insert()
+void insertion()
 {
-if(f==(r+1) % size)
+if(f==(r+1)%size)
 {
-printf("Queue is full");
+printf("queue is full");
 }
 else
 {
-printf("Enter the item:");
+printf("enter the item ");
 scanf("%d",&item);
 
 if(f==-1 && r==-1)
 {
-f=0,r=0;
+f=0;
+r=0;
 a[r]=item;
 }
 else
@@ -50,22 +49,21 @@ a[r]=item;
 }
 }
 }
-
-void delete()
+void deletion()
 {
-
 if(f==-1)
 {
-printf("no element to be deleted");
+printf("queue empty");
 }
-else if(f==r && r==0)
+else if(f==0 && r==0)
 {
-printf("The element to be deleted is %d",a[f]);
-f=r=-1;
+printf("The element to delete is %d",a[f]);
+f=-1;
+r=-1;
 }
 else
 {
-printf("The element to be deleted is %d",a[f]);
+printf("The element to delete is %d",a[f]);
 f=(f+1)%size;
 }
 }
@@ -75,11 +73,11 @@ int temp;
 temp=f;
 if(temp==-1 && r==-1)
 {
-printf("No element");
+printf("queue is empty");
 }
 else
 {
-printf("The elements are: ");
+printf("elements are:");
 while(temp>-1)
 {
 printf("%d\t",a[temp]);

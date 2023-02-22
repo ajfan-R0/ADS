@@ -1,71 +1,100 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+void display();
 void push();
 void pop();
-void display();
-struct node
-{
+struct node {
 	int data;
 	struct node *next;
 };
-	struct node *top=NULL;
-	struct node *a=NULL;
-void main()
-{
+struct node *top = NULL;
+void main() {
 	int opt;
-	do
-	{
-		printf("Enter your choice:\n 1.Push\n 2.Pop\n 3.Display\n 4.Exit\n------------------------>");
+	do {
+		printf("\nChoose the option number\n 1.Push, 2.Pop, 3.Display, 4.Exit : ");
 		scanf("%d",&opt);
-	switch(opt)
-	{
-	case 1:
-		push();
-		break;
-	case 2:
- 		pop();
-		break;
-	case 3:
-		display();
-		break;
-	case 4:
-		printf("exit");
-	}
-	}while(opt!=4);
+		switch(opt){
+			case 1:
+				push();
+				break;
+			case 2:
+				pop();
+				break;
+			case 3:
+				display();
+				break;
+			case 4:
+			default:
+				printf("\nEXIT\n");
+				break;
 		}
-void push()
-{
-	struct node *new=NULL;
-	new=(struct node*)malloc(sizeof (struct node));
-	printf("E2nter the data to be pushed:");
-	scanf("%d",&new->data);
-	new->next=top;
-	top=new;
-	a=top;
+	} while (opt !=4);
 }
-void pop()
-{
-	struct node *(ptr);
-	if (top==NULL)
-		printf("Stack underflow\n");
-	else
-	{
-		printf("Item to be popped :%d\n",top->data);
-		ptr=top;
-		top=top->next;
-		free(ptr);
+void push() {
+	struct node *new = NULL; 
+	 new = (struct node*)malloc(sizeof(struct node));
+		printf("Enter the data : ");
+		scanf("%d",&new->data);
+		new->next=top;
+		top=new;
+}
+void pop() {
+	if(top == NULL) {
+		printf("The stack is empty, underflow\n");
+	}
+	else {
+		printf("The item %d is poped \n",top->data);
+		top = top->next;
 	}
 }
-void display()
-{
-	a=top;
-	if(a==NULL)
-	{
-		printf("stack empty\n");
+void display() {
+	if(top == NULL) {
+		printf("The stack is empty, underflow\n");
 	}
-	else while(a!=NULL)
-	{
-		printf("%d\n",a->data);
-		a=a->next;
+	else {
+		printf("The Stack is : ");
+		struct node *ptr = top;
+		while(ptr!=NULL) {
+			printf("%d ",ptr->data);
+			ptr = ptr->next;
+		}
+		printf("\n");
 	}
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
